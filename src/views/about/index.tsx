@@ -4,7 +4,7 @@
  * @Autor: haowenbin
  * @Date: 2022-12-07 17:43:39
  * @LastEditors: haowenbin
- * @LastEditTime: 2022-12-07 18:32:50
+ * @LastEditTime: 2022-12-07 18:39:58
  * @FilePath: \gpn-sn-search\src\views\about\index.tsx
  */
 import React from 'react'
@@ -76,106 +76,14 @@ const columns: ColumnsType<DataType> = [
 const data: DataType[] = []
 
 const App: React.FC = () => (
-  <Table
-    scroll={{ x: 'max-content' }}
-    expandable={{
-      //配置展开属性
-      expandedRowRender: (props: any) => {
-        const datas =
-          props.datas?.split('\n').filter((item: any) => {
-            return item !== ''
-          }) ?? []
-        const list = datas.map((item: any, key: number) => {
-          let [keyValue, time] = item?.split('-')
-          return {
-            keyValue,
-            start: time?.split(',')[1],
-            end: time?.split(',')[2],
-            type: item?.split('-')[1]?.split(',')[0],
-            key,
-            ele3: time?.split(',')[3],
-            ele4: time?.split(',')[4],
-            ele5: time?.split(',')[5],
-            ele6: time?.split(',')[6],
-          }
-        })
-        const columns: ColumnsType<DataType> = [
-          {
-            title: '元数据',
-            dataIndex: 'keyValue',
-            key: 'keyValue',
-            width: 550,
-          },
-          {
-            title: '开始时间',
-            dataIndex: 'start',
-            key: 'start',
-            width: 150,
-          },
-          {
-            title: '结束时间',
-            dataIndex: 'end',
-            key: 'end',
-            width: 150,
-          },
-          {
-            title: '预留/充放电类型',
-            dataIndex: 'type',
-            key: 'type',
-            width: 140,
-            render: (type) => {
-              return (
-                <>
-                  {type !== '0' && type !== '1'
-                    ? '预留'
-                    : type === '0'
-                    ? '放电'
-                    : '充电'}
-                </>
-              )
-            },
-          },
-          {
-            title: '开始电量',
-            dataIndex: 'ele3',
-            key: 'ele3',
-            width: 100,
-          },
-          {
-            title: '结束电量',
-            dataIndex: 'ele4',
-            key: 'ele4',
-            width: 100,
-          },
-          {
-            title: '充电/放电电量',
-            dataIndex: 'ele5',
-            key: 'ele5',
-            width: 150,
-          },
-          {
-            title: '绿电',
-            dataIndex: 'ele6',
-            key: 'ele6',
-            width: 150,
-          },
-        ]
-        return (
-          <Table
-            rowKey="key"
-            sticky={{ offsetHeader: 0 }}
-            pagination={false}
-            columns={columns}
-            dataSource={list}
-          />
-        )
-      },
-    }}
-    rowKey="id"
-    bordered
-    columns={columns}
-    dataSource={data}
-  />
+  <div style={{ padding: '20px' }}>
+    <Table
+      scroll={{ x: 'max-content' }}
+      bordered
+      columns={columns}
+      dataSource={data}
+    />
+  </div>
 )
 
 export default App

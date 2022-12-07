@@ -4,7 +4,7 @@
  * @Autor: haowenbin
  * @Date: 2022-11-02 09:50:59
  * @LastEditors: haowenbin
- * @LastEditTime: 2022-12-07 17:54:50
+ * @LastEditTime: 2022-12-07 18:40:12
  * @FilePath: \gpn-sn-search\src\App.tsx
  */
 
@@ -62,8 +62,8 @@ function App() {
             </div> */}
           {/* <FormattedMessage key="appModule" id="appModule" /> */}
           <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/about" element={<About />}></Route>
+            <Route path="/" element={<About />}></Route>
+            {/* <Route path="/about" element={<About />}></Route> */}
           </Routes>
         </ConfigProvider>
       </IntlProvider>
